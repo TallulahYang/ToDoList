@@ -1,0 +1,19 @@
+.Slider {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    transform: rotate(-90deg);
+    cursor: ns-resize;
+  }
+    .Slider-circle,
+    .Slider-bar {
+      fill: transparent;
+    }
+    .Slider-circle {
+      stroke: #607D8B;
+    }
+    .Slider-bar {
+      stroke: rgb(0, 188, 212);
+      stroke-dashoffset: 0;
+      stroke-dasharray: 0;
+    }

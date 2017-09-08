@@ -1,0 +1,58 @@
+$black: #333;
+$purple: #6d639a;
+$pink: rgb(0, 188, 212);
+$white: #fefefe;
+$grey: rgba($black, .5);
+
+#form {
+    position: relative;
+    margin-bottom: 30px;
+    input {
+        background: transparent;
+        border: solid 1px;
+        padding: 7px 10px;
+        border-right: none;
+        width: 90%;
+        color: #333;
+        border-color: $pink;
+        vertical-align: middle;
+        height: 35px;
+        box-sizing: border-box;
+
+        &::-webkit-input-placeholder{
+            color: rgba($pink, .3);
+        }
+
+        &:focus, &:active{
+            outline: none;
+        }
+        
+    }
+    #priority{
+        // width: 20%;
+        margin-right: 2%;
+        display: inline-block;
+        float: right;
+        position: absolute;
+        right: 10%;
+        top: 5px;
+    }
+    #add {
+        // border: solid 1px #d63f74;
+        // padding: 7px 10px;
+        // background: rgba(214, 63, 116, 0.8);
+        cursor: pointer;
+        width: 15%;
+        min-width: 20px;
+        -webkit-transition: all 100ms linear 80ms;
+        transition: all 100ms linear 80ms;
+        color: #fefefe;
+        line-height: 1;
+        font-size: 18px;
+        outline: none;
+
+        vertical-align: middle;
+        height: 35px;
+        box-sizing: border-box;
+    }
+}
