@@ -13,13 +13,14 @@ class TodoItemView extends Component {
 
     render() {
         const { todo } = this.props;
+        let isFinished = todo.finished;
         return (
             <div id='item' style={{ clear: 'both' }}>
                 <div style={{ width: '80%', float: 'left', padding: '6px 0px' }}>
                     <Checkbox
                         type="checkbox"
                         label={todo.title}
-                        checked={todo.finished}
+                        checked={isFinished}
                         onClick={() => todo.toggleCheck()}
                         onChange={() => { console.log('---changed-----') }}
                     />

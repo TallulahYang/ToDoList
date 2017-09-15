@@ -20,7 +20,7 @@ class TodoListView extends Component {
                     transitionName="example"
                     transitionEnterTimeout={500}
                     transitionLeaveTimeout={300}>
-                    {todoList.todos.map(todo => (
+                    {todoList.filterTodos.map(todo => (
                         <TodoItemView todo={todo} key={todo.id} />
                     ))}
                 </ReactCSSTransitionGroup>

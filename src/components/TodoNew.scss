@@ -3,7 +3,6 @@ $purple: #6d639a;
 $pink: rgb(0, 188, 212);
 $white: #fefefe;
 $grey: rgba($black, .5);
-
 #form {
     position: relative;
     margin-bottom: 30px;
@@ -18,17 +17,15 @@ $grey: rgba($black, .5);
         vertical-align: middle;
         height: 35px;
         box-sizing: border-box;
-
-        &::-webkit-input-placeholder{
+        &::-webkit-input-placeholder {
             color: rgba($pink, .3);
         }
-
-        &:focus, &:active{
+        &:focus,
+        &:active {
             outline: none;
         }
-        
     }
-    #priority{
+    #priority {
         // width: 20%;
         margin-right: 2%;
         display: inline-block;
@@ -50,9 +47,19 @@ $grey: rgba($black, .5);
         line-height: 1;
         font-size: 18px;
         outline: none;
-
         vertical-align: middle;
         height: 35px;
         box-sizing: border-box;
+    }
+}
+
+#search {
+    text-align: left;
+    font-size: 11px;
+    input {
+        color: #333;
+         &::-webkit-input-placeholder {
+            color: rgba($pink, .3);
+        }
     }
 }

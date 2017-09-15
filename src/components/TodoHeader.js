@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import SliderView from './Slider';
+// import { observer } from "mobx-react";
 
+// @observer
 class TodoHeaderView extends Component {
 
     render() {
@@ -8,7 +10,7 @@ class TodoHeaderView extends Component {
         return (
             <div id='header'>
                 <div id='titleWrapper'>
-                    <h2 class="textCenter">To-do List</h2>
+                    <h2 className="textCenter">To-do List</h2>
                 </div>
             </div>
         );

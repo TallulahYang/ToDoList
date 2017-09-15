@@ -36,7 +36,7 @@ store.todos[0].finished = true;
 const App = () => (
     <MuiThemeProvider>
         <div id='container'>
-            <TodoHeader />
+            <TodoHeader todoList={store} />
             <TodoNewView todoList={store} />
             <TodoListView todoList={store} />
         </div>

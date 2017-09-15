@@ -2,6 +2,7 @@ import { observable, computed, action } from 'mobx';
 import TodoModel from '../models/TodoModel';
 
 class TodoStore {
+    @observable filter = '';
     @observable todos = [];
 
     @computed get unfinishedTodoCount() {
@@ -14,9 +15,16 @@ class TodoStore {
         return this.todos.length;
     }
 
+    @computed get filterTodos(){
+        return this.todos.filter(
+            todo => !this.filter || todo.title.toLowerCase().indexOf(this.filter.trim().toLowerCase()) !== -1
+        );
+    }
+
     @action
     addTodo(title,priority) {
-        this.todos.push(new TodoModel(this,title,priority));
+        let item = new TodoModel(this,title,priority);
+        this.todos.push(item);
     }
 
     @action
@@ -29,6 +37,19 @@ class TodoStore {
     toggleAll(checked) {
         this.todos.forEach(
             todo => todo.finished = checked
+        );
+    }
+
+    @action
+    searchAll(searchString){
+        console.log(searchString)
+        // if (!searchString) {
+        //     return this.todos;
+        //   }
+        var str = searchString.trim().toLowerCase();
+
+        this.todos.filter(
+            todo => !this.filter || todo.title.toLowerCase().indexOf(str) !== -1
         );
     }
 

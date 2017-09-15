@@ -8,7 +8,7 @@ import Checkbox from 'material-ui/Checkbox';
 import RaisedButton from 'material-ui/RaisedButton';
 // import FontIcon from 'material-ui/FontIcon';
 // import FlatButton from 'material-ui/FlatButton';
-
+import TextField from 'material-ui/TextField';
 const ENTER_KEY = 13;
 
 @observer
@@ -19,31 +19,42 @@ export default class TodoNew extends React.Component {
 
     render() {
         return (
-            <div id="form">
-                <input
-                    ref="newField"
-                    className="new-todo"
-                    placeholder="ADD NEW TO-DO"
-                    onKeyDown={this.handleNewTodoKeyDown}
-                    onChange={this.handleInputChange}
-                    autoFocus={true}
-                />
-                <div id='priority'>
-                    <Checkbox
-                        type="checkbox"
-                        label="priority"
-                        checked={this.checked}
-                        onClick={() => this.handlePriority()}
-                        onChange={() => { console.log('---changed-----') }}
+            <div>
+                <div id="search">
+                    <TextField
+                        name="TodoSearch"
+                        autoFocus="false"
+                        placeholder={'Filter By ...'}
+                        onChange={this.onChange}
+                        onKeyDown={this.onChange}
                     />
                 </div>
-                <RaisedButton
-                    id='add'
-                    label="+"
-                    primary={true}
-                    onClick={this.handleNewTodoAddition}
-                    style={{ width: '10%', minWidth: '8px' }}
-                />
+                <div id="form">
+                    <input
+                        ref="newField"
+                        className="new-todo"
+                        placeholder="ADD NEW TO-DO"
+                        onKeyDown={this.handleNewTodoKeyDown}
+                        onChange={this.handleInputChange}
+                        autoFocus={true}
+                    />
+                    <div id='priority'>
+                        <Checkbox
+                            type="checkbox"
+                            label="priority"
+                            checked={this.checked}
+                            onClick={() => this.handlePriority()}
+                            onChange={() => { console.log('---changed-----') }}
+                        />
+                    </div>
+                    <RaisedButton
+                        id='add'
+                        label="+"
+                        primary={true}
+                        onClick={this.handleNewTodoAddition}
+                        style={{ width: '10%', minWidth: '8px' }}
+                    />
+                </div>
             </div>
         );
     }
@@ -69,7 +80,13 @@ export default class TodoNew extends React.Component {
 
     };
 
+    @action
+    onChange = e => {
+        this.props.todoList.filter = e.target.value.trim();
+    };
+
     changeContent() {
+        // console.log(this.props.todoList.searchAll('get'))
         var val = this.newTodoTitle.trim();
         if (val) {
             this.props.todoList.addTodo(val, this.newTodoPriority);
